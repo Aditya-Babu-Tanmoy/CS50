@@ -1,0 +1,47 @@
+// FIFO
+// O(n)
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node{
+    int number;
+    struct node *next;
+} node;
+
+int main(void) {
+    node *list = NULL;
+    for (int i = 0; i < 3; i++){
+        node *n = malloc(sizeof(node));
+        if (n == NULL){
+            free(n);
+            return 1;
+        }
+        
+        scanf("%i", &n->number);
+        n->next = NULL;
+        
+        if(list == NULL){
+            list = n;
+        }
+        else{
+            for(node *ptr = list; ptr != NULL;ptr = ptr->next){
+                if(ptr->next == NULL){
+                    ptr->next = n;
+                    break;
+                }                   
+            }   
+        }
+    }
+    // Print the number from the list(node)
+    for (node *ptr = list; ptr != NULL; ptr = ptr -> next){
+        printf("%i\n", ptr->number);
+    }
+    // Free the storage
+    node *ptr = list;
+    while(ptr != NULL){
+        node *temp = ptr->next;// Temporaray to node to erase the main list
+        free(ptr);
+        ptr = temp;
+    }
+    return 0;
+}
