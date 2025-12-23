@@ -1,0 +1,33 @@
+//Week 5
+
+#include<cs50.h>
+#include<ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include<stdbool.h>
+
+
+typedef struct node{
+    char* phrase;
+    struct node* next;
+} node;
+
+node *table[26];
+
+int hash(char* phrase);
+bool unload(node *list);
+void visualizer(node *list);
+
+int main(void){
+    for(int i = 0; i< 3; i++){
+        char* phrase = get_string("Enter phrase: ");
+        int bucket = hash(phrase);
+        printf("%s hashes to %d\n", phrase, bucket);
+    }
+}
+
+int hash(char* phrase){
+
+    return toupper(phrase[0]) - 'A';
+}
