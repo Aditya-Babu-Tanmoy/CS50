@@ -1,0 +1,189 @@
+from cs50 import get_int
+
+x = get_int("x: ")
+y = get_int("y: ")
+
+print(x + y)
+
+x = input("x: ") #Taking input as string
+y = input("y: ")
+
+print(int(x) + int(y))
+
+
+
+
+x = get_int("x: ")
+y = get_int("y: ")
+
+
+if x > y:
+    print("x is greater than y")
+elif x < y:
+    print("y is greater than to x")
+else:
+    print("both are equal")
+
+
+
+
+
+s = input("s : ").lower()
+# t = s.lower()
+
+if s in ['y', 'yes']:
+    print("Agreed", end = '!')
+elif s in ['no', 'n']:
+    print("Not agreed", end = '!')
+
+
+
+s = input("s : ")
+i = 0
+for i in range(len(s)):
+    print(s[i].upper(), end = "")
+    i += 1
+print()
+
+
+def p():
+    print("Hello, World!", end = '')
+
+i = 0
+for i in range(78):
+    p()
+
+
+
+
+
+x = int(input("x: "))
+y = int(input("y: "))
+
+z = x / y
+print(z)
+print(f"{z:.50f}")
+
+
+
+
+n = int(input("input: "))
+if n.isnumeric():
+    print("Integer")
+else:
+    print("Not Integer")
+
+
+
+
+try:
+    n = int(input("input: "))
+    print("Integer")
+except ValueError:
+    print("Not Integer")
+else:
+    print("Integer")
+
+
+
+
+n = get_int("Height: ")
+if n > 0:
+    print("Invalid")
+for i in range(n):
+    print("#" * (i + 1))
+
+
+
+
+scors = [72, 73, 33]
+average = sum(scors) / len(scors)
+print(average)
+
+
+
+scores = []
+for i in range(3):
+    score = get_int("Score: ")
+    scores+= [score]
+average = sum(scores) / len(scores)
+print(average)
+
+
+
+names = ["Alice", "Bob", "Charlie"]
+
+name = input("Name: ")
+# for n in names:
+#     if name == n:
+#         print("Found")
+#         break
+#     else:
+#         print("Not Found")
+if name in names:
+    print("Found")
+else:
+    print("Not Found")
+
+
+
+people = [
+    {"name": "Alice", "age": 22},
+    {"name": "Bob", "age": 25},
+    {"name": "Char", "age": 30}
+]
+
+name = input("Name: ")
+for person in people:
+    if person["name"] == name:
+        age = person["age"]
+        print(f"Age: {age}")
+        break
+else:
+    print("Not Found")
+
+
+
+
+
+
+from sys import argv
+
+if len(argv) == 2:
+    print(f"Hello, {argv[1]}")
+else:
+    print("Hello, World")
+
+
+
+
+
+
+import sys
+
+if len(sys.argv) != 2:
+    print("Missing command-line argument")
+    sys.exit(1)
+
+print(f"Hello, {sys.argv[1]}")
+sys.exit(0)
+
+
+
+
+
+
+
+import csv
+
+name = input("Name: ")
+number = input("Number: ")
+
+with open("students.csv", "a") as file:
+    Writer = csv.DictWriter(file, fieldnames=["name", "number"])
+    Writer.writerow({"name": name, "number": number})
+
+
+
+
+
